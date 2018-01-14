@@ -16,54 +16,53 @@
 <body background = "C:\\Users\\Priya\\Desktop\\image3.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
-   <form:form method="POST" action="saveUser" modelAttribute="user">
-            <div class="form-group">
-		<label for="username" class="col-xs-4 control-label">username</label>
-		<div class="col-xs-4">
-			<form:input name="id" path="username" placeholder="UserName" class="form-control" />
-		</div>
-	</div>
-	
-	<br><br>
 
+
+<c:url var = "actionUrl" value="saveUser"/>
+
+<form  commandName="user" method="post" action="${actionUrl }" class="form-horizontal" >
 	<div class="form-group">
-		<label for="Supplier Name" class="col-xs-4 control-label">Email</label>
+		<label for="username" class="col-xs-4 control-label">UserName</label>
 		<div class="col-xs-4">
-			<form:input name="id" path="email" placeholder="Email" class="form-control" />
+			<input name="username" path="username" placeholder="Enter First Name" class="form-control" />
+	<!-- 	<td><errors path="username" cssClass="error"/></td> -->
 		</div>
-	</div>
-<br>
+	</div> 
+		
 	<div class="form-group">
-		<label for="code" class="col-xs-4 control-label">Password</label>
+		<label for="email" class="col-xs-4 control-label">Email</label>
 		<div class="col-xs-4">
-			<form:input name="password"  path="password" placeholder="User Password" class="form-control" />
-		</div>
-	</div>
-<br>
-	<div class="form-group">
-		<label for="code" class="col-xs-4 control-label">Phone Number</label>
-		<div class="col-xs-4">
-			<form:input name="phone"  path="contact" placeholder="User Phone" class="form-control" />
+			<input name="email" path="email" placeholder="Enter Email" class="form-control" />
+<!-- 		<td><errors path="email" cssClass="error"/></td>   -->
 		</div>
 	</div>
 
+	<div class="form-group">
+		<label for="password" class="col-xs-4 control-label">Password</label>
+		<div class="col-xs-4">
+			<input name="password"  path="password" placeholder="Enter Password" class="form-control" />
+			<!-- <td><errors path="password" cssClass="error"/></td>  
+ -->		</div>
+	</div>
 
-<br>
+	<div class="form-group">
+		<label for="contact" class="col-xs-4 control-label">Phone Number</label>
+		<div class="col-xs-4">
+			<input name="contact"  path="contact" placeholder="contact" class="form-control" />
+	<!-- 		<td><errors path="contact" cssClass="error"/></td>   -->
+		</div>
+	</div>
+
 	<div class="form-group">
 	<label for="code" class="col-xs-4 control-label"></label>
 		
 		<div class="col-xs-4">
-		
 			
+		<input type="submit" value="Register" id="btn-add" class="btn btn-primary" >
 	
-		<input type="submit" value="Add User" id="btn-add" class="btn btn-primary" >
-	
-	
-
-		
-		</div>
 	</div>
-</form:form>
+	</div>
+	</form>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>

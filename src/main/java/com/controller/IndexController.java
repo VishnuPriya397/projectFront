@@ -6,9 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dao.UserDAO;
+import com.daoimpl.CategoryDAOImpl;
+import com.daoimpl.ProductDAOImpl;
+import com.daoimpl.UserDAOImpl;
 import com.model.User;
 
 @Controller
@@ -17,44 +21,69 @@ public class IndexController
 {
 
 	@Autowired
-	 UserDAO userDAO;
+	 UserDAOImpl userDAOImpl;
+	
+	@Autowired
+	ProductDAOImpl  productDAOImpl;
+	
+	@Autowired
+	CategoryDAOImpl categoryDAOImpl;
+
 	
 	@RequestMapping("/")
-	public String landingpage(@ModelAttribute("user") User user,Model model)
+	public String index()
 	{
+	
 		return "index";
-
-    }
-
-	@RequestMapping("goToRegister")
-	public String goToRegisterPage(@ModelAttribute("user") User user,Model model)
-	{
-	
-		model.addAttribute("user",new User());
-	
-		return "register";
-
-
 	}
 
-	@RequestMapping("/saveUser")
-	public ModelAndView saveUserData(@ModelAttribute("user") User user,BindingResult result)
+	@RequestMapping("/index")
+	public String home()
+	{
 	
-		{
-		ModelAndView m = new ModelAndView();
-			if (result.hasErrors()) {
-			   m.setViewName("register");	 
-			   return m;
-			 
-			}
-			else{
-				userDAO.insertUser(user);
-				user.setEnabled(true);
-				user.setRole("ROLE_USER");
-				m.setViewName("index");
-			}
+		return "index";
+	}
+	@RequestMapping(value="/goToRegister",method=RequestMethod.GET)
+	public ModelAndView goToRegister()
+	{
+		ModelAndView mv= new ModelAndView();
+		mv.addObject("user",new User());
+
+		mv.setViewName("register");
+		return mv;
 		
-	   return m;
+		
+	}
+	@RequestMapping(value="/saveUser",method=RequestMethod.POST)
+	public ModelAndView saveUser(@ModelAttribute("user")User user,BindingResult result)
+	{
+		ModelAndView mv=new ModelAndView();
+		if(result.hasErrors())
+		{
+			mv.setViewName("register");
+			return mv;
+		}
+		else{
+			user.setRole("ROLE_USER");
+			user.setEnable(true);
+			userDAOImpl.insertUser(user);
+			mv.setViewName("index");
+			}
+		return mv;
+	}
+	
+	@RequestMapping(value="/productCustList")
+	public ModelAndView getCustTable(@RequestParam("cid")int cid)
+	{
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("prodList",productDAOImpl.getProdByCatId(cid));
+		mv.setViewName("productCustList");
+		return mv;
+	}
+	@ModelAttribute
+	public void getData(Model m)
+	{
+		m.addAttribute("catList",categoryDAOImpl.retrieve());
 	}
 	
 	@RequestMapping("/goToLogin") 
@@ -68,8 +97,10 @@ public class IndexController
 		return "redirect:/index";
 	}
 	
-	@RequestMapping("/reLogin") 
-	public String reLogin(){
-		return "login";
+	@RequestMapping("/reLogin")
+	public String relogin()
+	{
+		return "redirect:/goToLogin";
 	}
+	
 }

@@ -23,20 +23,39 @@
      </div>
      <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-             <li class="active"><a href="#">Home</a></li>
-             <li><a href="index">Home</a></li>             
-             <li><a href="supplier">Supplier</a></li>
-             <li><a href="category">Category</a></li>
-             <li><a href="product">Product</a></li>
-             <li><a href="${pageContext.request.contextPath }/admin">Admin</a></li>
-             <c:if test="${pageContext.request.userPrincipal.name == null}">
-             <li><a href="${pageContext.request.contextPath }/goToRegister">Register</a></li>
-             <li><a href="${pageContext.request.contextPath }/goToLogin">Login</a></li>
-             </c:if>
-             <c:if test="${pageContext.request.userPrincipal.name != null}">
-             <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
-             <li><a href="${pageContext.request.contextPath }/Logout">Logout</a></li>
-             </c:if>
+             <li class="active"><a href="index">Home</a></li>           
+              <ul class="nav navbar-nav navbar-right">
+      <c:if test="${pageContext.request.userPrincipal.name==null}">
+        <li><a href="${pageContext.request.contextPath}/goToRegister">Register</a></li>
+        <li><a href="${pageContext.request.contextPath}/goToLogin"><span class="glyphicon-glyphicon-log-in"></span>Login</a></li>
+        </c:if>
+        
+        <c:if test="${pageContext.request.userPrincipal.name !=null}">
+                <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+                <li><a href="<c:url value="/j_spring_security_logout"/>"><span class="glyphicon-glyphicon-log-out"></span>Logout</a></li>
+       </c:if>
+                 
+        <c:if test="${pageContext.request.userPrincipal.name == 'p@gmail.com'}">
+        <li><a href="${pageContext.request.contextPath}/admin/adding">Admin</a></li>
+
+        <li><a href="${pageContext.request.contextPath}/admin/productList">Product</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin/supplierList">Supplier</a></li>
+        <li><a href="${pageContext.request.contextPath}/admin/categoryList">Category</a></li>
+   
+        </c:if> 
+        
+        <li><a href="${pageContext.request.contextPath}/goToCart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
+        <i class="fa fa-cart-plus" aria-hidden="true"></i></a></li>
+      </ul>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      category choice<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+      <c:forEach var="catval" items="${catList}">
+      <li><a href="${pageContext.request.contextPath} /productCustList?cid=${catval.cid}">${catval.cname}</a>
+      </li>
+      </c:forEach>
+      </ul>
+        
              <li><a href="#">Contact us</a></li> 
              <li><a href="#">About us</a></li> 
          </ul>

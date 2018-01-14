@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image3.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image9.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
 <c:url var="actionUrl" value="${pageContest.request.contextPath}/updateProd"/>
@@ -87,9 +87,9 @@
 	</tr>
     </table>
     
-    <a class="btn btn-primary" role="button" href="${pageContest.request.contextPath}/updateProduct"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Update</a>
+    <a class="btn btn-primary" role="button" href="${pageContest.request.contextPath}//updateProduct"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Update</a>
 
 <a class="btn btn-primary" role="button" href="#"> Cancel</a> 
 </form:form>
 </body>
-</html>
+</html> --%>
