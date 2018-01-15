@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,7 +57,7 @@ public class IndexController
 		
 	}
 	@RequestMapping(value="/saveUser",method=RequestMethod.POST)
-	public ModelAndView saveUser(@ModelAttribute("user")User user,BindingResult result)
+	public ModelAndView saveUser(@Valid @ModelAttribute("user")User user,BindingResult result)
 	{
 		ModelAndView mv=new ModelAndView();
 		if(result.hasErrors())

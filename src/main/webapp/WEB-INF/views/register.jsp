@@ -20,36 +20,36 @@
 
 <c:url var = "actionUrl" value="saveUser"/>
 
-<form  commandName="user" method="post" action="${actionUrl }" class="form-horizontal" >
+<form:form  commandName="user" method="post" action="${actionUrl }" class="form-horizontal" >
 	<div class="form-group">
 		<label for="username" class="col-xs-4 control-label">UserName</label>
 		<div class="col-xs-4">
-			<input name="username" path="username" placeholder="Enter First Name" class="form-control" />
-	<!-- 	<td><errors path="username" cssClass="error"/></td> -->
+			<form:input name="username" path="username" placeholder="Enter First Name" class="form-control" />
+	 	<td><form:errors path="username" cssClass="error"/></td>
 		</div>
 	</div> 
 		
 	<div class="form-group">
 		<label for="email" class="col-xs-4 control-label">Email</label>
 		<div class="col-xs-4">
-			<input name="email" path="email" placeholder="Enter Email" class="form-control" />
-<!-- 		<td><errors path="email" cssClass="error"/></td>   -->
+			<form:input name="email" path="email" placeholder="Enter Email" class="form-control" />
+		<td><form:errors path="email" cssClass="error"/></td>   
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="password" class="col-xs-4 control-label">Password</label>
 		<div class="col-xs-4">
-			<input name="password"  path="password" placeholder="Enter Password" class="form-control" />
-			<!-- <td><errors path="password" cssClass="error"/></td>  
- -->		</div>
+			<form:input name="password"  path="password" placeholder="Enter Password" class="form-control" />
+		    <td><form:errors path="password" cssClass="error"/></td>  
+		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="contact" class="col-xs-4 control-label">Phone Number</label>
 		<div class="col-xs-4">
-			<input name="contact"  path="contact" placeholder="contact" class="form-control" />
-	<!-- 		<td><errors path="contact" cssClass="error"/></td>   -->
+			<form:input name="contact"  path="contact" placeholder="contact" class="form-control" />
+	        <td><form:errors path="contact" cssClass="error"/></td> 
 		</div>
 	</div>
 
@@ -62,7 +62,7 @@
 	
 	</div>
 	</div>
-	</form>
+	</form:form>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 </body>
