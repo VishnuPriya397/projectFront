@@ -15,5 +15,7 @@
 <h4>Authentication error!</h4>
 <img class="img-rounded" class="img-responsive center-block" src="C:\Users\Priya\Desktop\logoo.png"/>
 <h3>Go back to home or <a href="${pageContext.request.contextPath}/reLogin">Re-Login</a></h3>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

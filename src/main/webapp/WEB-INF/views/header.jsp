@@ -47,15 +47,18 @@
         <li><a href="#<%-- ${pageContext.request.contextPath}/goToCart --%>"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
         <i class="fa fa-cart-plus" aria-hidden="true"></i></a></li>
       </ul>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      category choice<span class="caret"></span></a>
+      <li>
+    <div class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Category Choice<span class="caret"></span></a>
       <ul class="dropdown-menu">
       <c:forEach var="catval" items="${catList}">
       <li><a href="${pageContext.request.contextPath} /productCustList?cid=${catval.cid}">${catval.cname}</a>
       </li>
       </c:forEach>
-      </ul>
-        
+      </ul> 
+    </div>   
+    </li>        
              <li><a href="#">Contact us</a></li> 
              <li><a href="#">About us</a></li> 
          </ul>
