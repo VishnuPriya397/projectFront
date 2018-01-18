@@ -50,6 +50,7 @@
 <td><img src="${pageContext.request.contextPath}/resources/${p.imagName}" height="50px" width="50px"></td>
 <td><c:set var="contexRoot" value="${pageContext.request.contextPath}"></c:set>
 <a class="btn btn-info" role="button" href="<c:url value="/prodDetails/${p.pid}"/>">Details</a>
+<a class="btn btn-info" role="button" href="<c:url value="/addToCart/${p.pid}"/>">Add To Cart</a>
 <tr>
 </c:forEach>
 </table>

@@ -82,6 +82,9 @@ public class IndexController
 		mv.setViewName("productCustList");
 		return mv;
 	}
+	
+	
+	
 	@ModelAttribute
 	public void getData(Model m)
 	{

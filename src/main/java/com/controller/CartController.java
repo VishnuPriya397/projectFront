@@ -7,8 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import org.springframework.web.servlet.ModelAndView;
 import com.dao.CartDAO;
 import com.dao.ProductDAO;
 import com.model.Cart;
@@ -23,13 +22,13 @@ public class CartController {
 	@Autowired
 	ProductDAO productDAO;
 	
-	 @RequestMapping(value="addToCart/{id}")
-	    public String addProductToCart(@PathVariable("id") int id, HttpSession session,Model model,RedirectAttributes attributes)
+	 @RequestMapping(value="/addToCart/{id}")
+	    public String addProductToCart(@PathVariable("id") int id, HttpSession session,Model model)
 	    {
-	    	int userId = (Integer) session.getAttribute("userid");
+	    	String email = (String) session.getAttribute("email");
 	    	int q=1;
-	    	if (cartDAO.getitem(id, userId) != null) {
-				Cart item = cartDAO.getitem(id, userId);
+	    	if (cartDAO.getitem(id, email) != null) {
+				Cart item = cartDAO.getitem(id, email);
 				
 				item.setProductQuantity(item.getProductQuantity() + q);
 				
@@ -38,28 +37,34 @@ public class CartController {
 				System.out.println(item);
 				item.setPrice(p.getPrice());
 				item.setSubTotal(item.getProductQuantity() *p.getPrice());
-				cartDAO.saveProductToCart(item);
-				attributes.addFlashAttribute("ExistingMessage",  p.getPname() +"is already exist");
-		
-				return "redirect:/cart	";
+				cartDAO.insertCart(item);
+				return "cart";
 			} else {
 				Cart item = new Cart();
 				Product p = productDAO.findByPID(id);
 				item.setPid(p.getPid());
 				item.setProductName(p.getPname());
-				item.setUserId(userId);
+				item.setEmail(email);
 				item.setProductQuantity(q);
 				
 				item.setSubTotal(q * p.getPrice());
 				item.setPrice(p.getPrice());
-				cartDAO.saveProductToCart(item);
-				attributes.addFlashAttribute("SuccessMessage", "Item"+p.getPname()+" has been deleted Successfully");
-				return "redirect:/cart";
+				cartDAO.insertCart(item);
+				return "cart";
 			}
 	    	
 	    }
-	   
-	  @RequestMapping("cart")
+	 @RequestMapping(value="/prodDetails/{pid}")
+	 public ModelAndView prodDet(@PathVariable("pid")int pid)
+	 {
+	 	ModelAndView mv= new ModelAndView();
+	 	Product p=productDAO.findByPID(pid);
+	 	mv.addObject("product",p);
+	 	mv.setViewName("prodDetails");
+	 	return mv;
+	 	
+	 }
+	 /* @RequestMapping("cart")
 		public String viewCart(Model model, HttpSession session) {
 	    	
 			int userId = (Integer) session.getAttribute("userid");
@@ -73,6 +78,6 @@ public class CartController {
 			model.addAttribute("IfcartClicked", "true");
 		//	model.addAttribute("HideOthers", "true");
 			return "Cart";
-		}
+		}*/
 
 }

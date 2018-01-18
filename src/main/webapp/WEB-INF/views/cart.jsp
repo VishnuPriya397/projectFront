@@ -34,9 +34,7 @@
                      <c:forEach items="${CartList}" var="cart">
                     
                     <tr>
-                
-                     
-                        <td class="col-sm-8 col-md-6">
+                       <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
                          <a class="thumbnail pull-left" href="#"> <img src="/medical/myImage/imageDisplay?id=${cart.productId}" style="height:50px;height: 50px" > </a> 
                             <div class="media-body">
@@ -69,13 +67,6 @@
                         <td>   </td>
                         <td><h5></h5></td>
                         <td class="text-right"><h5><strong>${cart.subTotal}</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Estimated shipping</h5></td>
-                        <td class="text-right"><h5><strong>$6.94</strong></h5></td>
                     </tr>
                     <tr>
                         <td>   </td>
