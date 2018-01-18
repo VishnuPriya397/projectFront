@@ -13,12 +13,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image6.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image7.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
 <div class="container">
 <h2>Product List</h2>
-<table class="table table-hover" id="apl" class="display" border="2" width="80" align="center">
+<table class="table table-hover bg-warning" id="apl" class="display" border="2" width="80" align="center">
 <tr>
 <th>S.No</th>
 <th>PID</th>
@@ -29,30 +29,31 @@
 <th>Stock</th>
 <th>Price</th>
 <th>Image</th>
-<th>Action</th>
-<th class="span2">Action</th>
+
+<th class="span2">ACTION</th>
 </tr>
-<c:if test="${empty ProdList}">
+<c:if test="${empty prodList}">
 <tr>
 <td colspan="10" align="center">No record exists!!</td>
 </tr>
 </c:if>
-<c:forEach var="p" varStatus="st" items="${ProdList}">
+<c:forEach var="p" varStatus="st" items="${prodList}">
 <tr>
 <td><c:out value="${st.count}"></c:out></td>
-<td><c:out value="${p.pid }"></c:out></td>
+<td><c:out value="${p.pid}"></c:out></td>
 <td><c:out value="${p.pname}"></c:out></td>
 <td><c:out value="${p.supplier.sname}"></c:out></td>
 <td><c:out value="${p.category.cname}"></c:out></td>
-<td class="span3"><c:out value="${p.pdescription}"></c:out>
+<td class="span3"><c:out value="${p.pdescription}"></c:out></td>
 <td><c:out value="${p.price}"></c:out></td>
-<td><c:out value="${p.stock}"></c:out></td>
-<td><img src="${pageContext.request.contextPath}/resources/${p.imgName}" height="50px" width="50px"></td>
-<c:set var="contextRoot" value="${pageContext.request.contextPath }"></c:set>
+<td><c:out value="${p.pstock}"></c:out></td>
+<td><img src="${pageContext.request.contextPath}/resources/${p.imagName}" height="50px" width="50px"></td>
+<td><c:set var="contexRoot" value="${pageContext.request.contextPath}"></c:set>
 <a class="btn btn-info" role="button" href="<c:url value="/prodDetails/${p.pid}"/>">Details</a>
 <tr>
 </c:forEach>
 </table>
+</div>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>

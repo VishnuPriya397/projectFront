@@ -86,7 +86,7 @@ public class IndexController
 	public void getData(Model m)
 	{
 		m.addAttribute("catList",categoryDAOImpl.retrieve());
-	}
+    }
 	
 	@RequestMapping("/goToLogin") 
 	public String goToLogin(){
