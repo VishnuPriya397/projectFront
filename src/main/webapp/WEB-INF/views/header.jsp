@@ -37,14 +37,12 @@
                  
         <c:if test="${pageContext.request.userPrincipal.name == 'p@gmail.com'}">
         <li><a href="${pageContext.request.contextPath}/admin/adding">Admin</a></li>
-
         <li><a href="${pageContext.request.contextPath}/admin/productList">Product</a></li>
         <li><a href="${pageContext.request.contextPath}/admin/supplierList">Supplier</a></li>
         <li><a href="${pageContext.request.contextPath}/admin/categoryList">Category</a></li>
-   
         </c:if> 
         
-        <li><a href="#<%-- ${pageContext.request.contextPath}/goToCart --%>"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
+        <li><a href="${pageContext.request.contextPath}/viewcart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart
         <i class="fa fa-cart-plus" aria-hidden="true"></i></a></li>
       </ul>
       <li>

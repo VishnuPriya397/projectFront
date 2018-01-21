@@ -5,13 +5,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Payment Details</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="resources/css/Pretty-Footer.css">
+<link rel="stylesheet" href="resources/css/PageDisplay.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Payment</title>
 <script>
 $( document ).ready(function() {
 	$("#pmtMethod").change(function(){
@@ -24,18 +25,19 @@ $( document ).ready(function() {
 });
 </script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image8.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image15.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<h2 style="color:maroon">Sweet Gene</h2>
+<h2 style="color:white">Sweet Gene</h2>
 <div id="wrap">
 <div id="main" class="container clear-top">
-
-  <h3>Select a Payment Method</h3>
+<font color="white">
+  <h3>Select a Payment Method</h3></font>
   <hr>
   <form:form commandName="payment" action="selectPaymentMethod" method="post">
   						<div class="row">
 						<div class="col-xs-4">
-							<form:select path="paymentMethod" class="form-control" id="pmtMethod"> 								<option value="">---Choose Payment Method---</option>
+							<form:select path="paymentMethod" class="form-control" id="pmtMethod"> <!-- onchange="showhidediv();" -->
+								<option value="">---Choose Payment Method---</option>
 								<option value="creditcard">Credit Card</option>
 								<option value="debitcard">Debit Card</option>
 								<option value="netbanking">NetBanking</option>
@@ -44,17 +46,18 @@ $( document ).ready(function() {
 							</form:select>					    
 			      		</div>
 			      		</div>
-			      		<br><br>
+			 
+  		<br><br>
 		<div class="row">
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default" id="carddetails">
-                <div class="panel-heading">
+                <div class="panel-heading panel-danger">
                     <h3 class="panel-title">
                        Enter Card Details
                     </h3>
                  </div>
-               <div class="panel-body">	
-               <div class="row">
+               <div class="panel-body">				
+						<div class="row">
 						<div class="form-group">
 						  <div class="col-xs-10">
 	                        <label for="cardType">CARD TYPE</label>
@@ -80,7 +83,7 @@ $( document ).ready(function() {
 		                        </div>
 		                        </div>
                     		</div>
-               </div>
+			      		</div>
 			      		<br><br>
 			      		<div class="row">
 			      			 <div class="control-group">
@@ -113,7 +116,7 @@ $( document ).ready(function() {
                             <div class="col-xs-10">
                                 <label for="cvCode">
                                     CVV2 CODE</label>
-                                     <input type="password" class="form-control" id="cvCode" placeholder="CVV2" />
+                                <input type="password" class="form-control" id="cvCode" placeholder="CVV2" />
                                </div>
                             </div>
                         </div>
@@ -129,7 +132,8 @@ $( document ).ready(function() {
 			 </div>
 		
 </form:form>
-</div></div>                              
+</div>
+</div>                         
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>

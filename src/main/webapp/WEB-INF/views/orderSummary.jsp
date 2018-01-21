@@ -13,13 +13,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image3.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image16.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
 <div id="wrap">
 <div id="main" class="container clear-top">
 <div class = "row">
-      <div class = "col-xs-8 jumbotron">
+      <div class = "col-xs-8 jumbotron bg-warning">
       	<div class = "col-xs-5">
       		<p>Shipping Address:</p><br>
       		 ${address.name}<br/>
@@ -38,12 +38,13 @@
       	 <br>${paymentChoice}
       	</div>
       </div>
+      
       <div class= "col-xs-4">
       
-      	 <div class ="jumbotron">
+      	 <div class ="jumbotron bg-warning">
       	 <a class="btn btn-warning btn-block" href="${pageContext.request.contextPath}/processOrder">Place Order</a><br><br/>
       	 <p>Order Summary</p>
-      	 <h5> Items Subtotal :<span class="fa fa-inr"></span> ${cartTotalAmount}</h5>
+      	 <h5> Items Subtotal :<span class="fa fa-inr"></span>${cartTotalAmount}</h5>
       	 <h5> Delivery Charges:<span class="fa fa-inr"></span>   50.0 </h5>
       	 <hr/>
       	 <c:set var="ordertot" value="${cartTotalAmount + 50.0}"></c:set>
@@ -51,10 +52,11 @@
       
       	 </div>
       </div>
- </div>
-<div class="row">
+  </div>
+  
+  <div class="row">
 	 <div class="col-sm-12 col-md-10 col-md-offset-1">
-	 <table class="table table-hover table-condensed">
+	 <table class="table table-hover table-condensed bg-warning">
 	 <thead>
 			<tr>
 			<th>Product</th>
@@ -70,26 +72,31 @@
 			<tr>
 			 <td class="col-sm-8 col-md-6">
 			<div class="media">
-			 <a class="thumbnail pull-left" href=""><img class="media-object" src="/medical/myImage/imageDisplay?id=${cart.productId}" class="img-thumbnail" width="72px" height="72px"/></a>
 					
 			<div class="media-body">
 			<c:forEach items="${productList}" var="product">	
-				<c:if test="${product.productId == cart.productId}">
-			<h4 class="media-heading"><a href="">${product.productName}</a></h4>
+				<c:if test="${product.pid == cart.productid}">
+			<h4 class="media-heading"><a href="">${product.pname}</a></h4>
                                 <h5 class="media-heading"></h5>
                                 <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
-                                </c:if></c:forEach>
-             </div>
-             </div></td></tr>
-             <td class="col-sm-1 col-md-1 text-center"></td>
+                            </div>
+                        </div></td>
+                 </c:if>
+              </c:forEach>
+               <td class="col-sm-1 col-md-1 text-center"></td>
 			 <td class="col-sm-1 col-md-1 text-center"></td>
              <td class="col-sm-1 col-md-1">
              With in 7 working days
  			 </td>
-			<tr> <td class="col-sm-1 col-md-1" style="text-align: center">
+			 <td class="col-sm-1 col-md-1" style="text-align: center">
+			
 			${cart.productQuantity}
-		     </td> 
-		     </tr>
+			
+			</td>
+			
+			
+				
+		</tr>
 		
 		</c:forEach>
 		<tr>
@@ -97,10 +104,18 @@
 			<td>  </td>
 			<td>  </td>
 			<td></td>
-			<td class="text-right"><h5><a class="btn btn-sm btn-warning"  href="${pageContext.request.contextPath}/cart">Edit Order</a></h5></td>
+			<td class="text-right"><h5><a class="btn btn-sm btn-warning"  href="${pageContext.request.contextPath}/viewcart">Edit Order</a></h5></td>
 		</tr>
-      </tbody></table></div></div></div></div>
-
+		
+		
+		</tbody>
+		
+	</table>
+	
+		</div>
+	</div>
+  </div>
+  </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>

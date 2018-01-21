@@ -13,14 +13,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image5.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image13.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
-
 <div class="container">
     <div class="row">
           <div class="col-sm-12 col-md-10 col-md-offset-1">
-            <table class="table table-hover">
+            <table class="table table-hover bg-warning">
                 <thead>
                     <tr>
                         <th>Product</th>
@@ -34,25 +33,30 @@
                      <c:forEach items="${CartList}" var="cart">
                     
                     <tr>
-                       <td class="col-sm-8 col-md-6">
+                
+                     
+                        <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
-                         <a class="thumbnail pull-left" href="#"> <img src="/medical/myImage/imageDisplay?id=${cart.productId}" style="height:50px;height: 50px" > </a> 
+                         <a class="thumbnail pull-left" href="">
+                         <img height="100px"
+						width="100px" alt="${cart.productid}"
+						src="<c:url value="/resources/images/${cart.productid}.jpg"></c:url>"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
-                              <!--<span>Status: </span><span class="text-success"><strong>In Stock</strong></span>-->
+                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <form action="editCart/${cart.cartId}">
+                        <form action="editCart/${cart.cartid}">
                         <input type="text" class="form-control" id="exampleInputEmail1" name="quantity" value="${cart.productQuantity }" >
                         
                         </form>
                         </td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>${cart.price}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>${cart.productPrice}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>${cart.subTotal}</strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <a href="removeCart/${cart.cartId }" type="button" class="btn btn-danger">
+                        <a href="removeCart/${cart.cartid }" type="button" class="btn btn-danger">
                           <span class="glyphicon glyphicon-remove"></span> Remove
                         </a>
                         
@@ -60,13 +64,12 @@
                           </tr>
                           
                     </c:forEach>   
-                          
                     <tr>
                         <td>   </td>
                         <td>   </td>
                         <td>   </td>
-                        <td><h5></h5></td>
-                        <td class="text-right"><h5><strong>${cart.subTotal}</strong></h5></td>
+                        <td><h5>Estimated shipping</h5></td>
+                        <td class="text-right"><h5><strong>50/-</strong></h5></td>
                     </tr>
                     <tr>
                         <td>   </td>
@@ -96,10 +99,7 @@
     </div>
 </div>
 </body>
-<br><br>
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>

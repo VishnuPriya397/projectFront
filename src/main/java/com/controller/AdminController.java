@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.daoimpl.CategoryDAOImpl;
-import com.daoimpl.ProductDAOImpl;
-import com.daoimpl.SupplierDAOImpl;
+import com.dao.CategoryDAO;
+import com.dao.ProductDAO;
+import com.dao.SupplierDAO;
 import com.model.Category;
 import com.model.Product;
 import com.model.Supplier;
@@ -28,11 +28,11 @@ import com.model.Supplier;
 public class AdminController {
 
 	@Autowired
-	SupplierDAOImpl supplierDAOImpl;
+	SupplierDAO supplierDAO;
 	@Autowired
-	CategoryDAOImpl categoryDAOImpl;
+	CategoryDAO categoryDAO;
 	@Autowired
-	ProductDAOImpl  productDAOImpl;
+	ProductDAO  productDAO;
 	
 	@RequestMapping("/admin/adding")
 	public String adding()
@@ -47,7 +47,7 @@ public class AdminController {
 		Supplier ss= new Supplier();
 		ss.setSid(sid);
 		ss.setSname(sname);
-		supplierDAOImpl.insertSupplier(ss);
+		supplierDAO.insertSupplier(ss);
 		mv.setViewName("adding");
 		return mv;
 	}
@@ -59,7 +59,7 @@ public class AdminController {
 		Category cc= new Category();
 		cc.setCid(cid);
 		cc.setCname(cname);
-		categoryDAOImpl.insertCategory(cc);
+		categoryDAO.insertCategory(cc);
 		mv.setViewName("adding");
 		return mv;
 	}
@@ -74,13 +74,13 @@ public class AdminController {
 		prod.setPrice(Double.parseDouble(request.getParameter("price")));
 		prod.setPdescription(request.getParameter("pdescription"));
 		prod.setPstock(Integer.parseInt(request.getParameter("pstock")));
-		prod.setCategory(categoryDAOImpl.findByCatId(Integer.parseInt(request.getParameter("pCategory"))));
-		prod.setSupplier(supplierDAOImpl.findBySuppId(Integer.parseInt(request.getParameter("pSupplier"))));
+		prod.setCategory(categoryDAO.findByCatId(Integer.parseInt(request.getParameter("pCategory"))));
+		prod.setSupplier(supplierDAO.findBySuppId(Integer.parseInt(request.getParameter("pSupplier"))));
 		
 		String filepath =request.getSession().getServletContext().getRealPath("/");
 		String filename= file.getOriginalFilename();
 		prod.setImagName(filename);
-		productDAOImpl.insertProduct(prod);
+		productDAO.insertProduct(prod);
 		
 		
 		System.out.println("File path"+filepath);
@@ -105,9 +105,9 @@ public class AdminController {
 	@ModelAttribute
 	public void loadingDataInPage(Model m)
 	{
-		m.addAttribute("satList",supplierDAOImpl.retrieve());
-		m.addAttribute("catList",categoryDAOImpl.retrieve());
-		m.addAttribute("prodList",productDAOImpl.retrieve());
+		m.addAttribute("satList",supplierDAO.retrieve());
+		m.addAttribute("catList",categoryDAO.retrieve());
+		m.addAttribute("prodList",productDAO.retrieve());
 
 	}
 
@@ -115,7 +115,7 @@ public class AdminController {
 	public ModelAndView prodlist()
 	{
 	ModelAndView mv= new ModelAndView();
-	mv.addObject("prodList",productDAOImpl.retrieve());
+	mv.addObject("prodList",productDAO.retrieve());
 	mv.setViewName("productAdminList");
 	return mv;
 	}
@@ -124,7 +124,7 @@ public class AdminController {
 	public ModelAndView satlist()
 	{
 		ModelAndView mv= new ModelAndView();
-		mv.addObject("satList",supplierDAOImpl.retrieve());
+		mv.addObject("satList",supplierDAO.retrieve());
 		mv.setViewName("supplierAdminList");
 		return mv;
 		
@@ -133,7 +133,7 @@ public class AdminController {
 	public ModelAndView catlist()
 	{
 		ModelAndView mv= new ModelAndView();
-		mv.addObject("catList",categoryDAOImpl.retrieve());
+		mv.addObject("catList",categoryDAO.retrieve());
 		mv.setViewName("categoryAdminList");
 		return mv;
 		

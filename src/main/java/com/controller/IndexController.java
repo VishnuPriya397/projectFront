@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.dao.CategoryDAO;
+import com.dao.ProductDAO;
+import com.dao.UserDAO;
 import com.daoimpl.CategoryDAOImpl;
 import com.daoimpl.ProductDAOImpl;
 import com.daoimpl.UserDAOImpl;
@@ -23,13 +26,13 @@ public class IndexController
 {
 
 	@Autowired
-	 UserDAOImpl userDAOImpl;
+	 UserDAO userDAO;
 	
 	@Autowired
-	ProductDAOImpl  productDAOImpl;
+	ProductDAO  productDAO;
 	
 	@Autowired
-	CategoryDAOImpl categoryDAOImpl;
+	CategoryDAO categoryDAO;
 
 	
 	@RequestMapping("/")
@@ -68,7 +71,7 @@ public class IndexController
 		else{
 			user.setRole("ROLE_USER");
 			user.setEnable(true);
-			userDAOImpl.insertUser(user);
+			userDAO.insertUser(user);
 			mv.setViewName("index");
 			}
 		return mv;
@@ -78,7 +81,7 @@ public class IndexController
 	public ModelAndView getCustTable(@RequestParam("cid")int cid)
 	{
 		ModelAndView mv=new ModelAndView();
-		mv.addObject("prodList",productDAOImpl.getProdByCatId(cid));
+		mv.addObject("prodList",productDAO.getProdByCatId(cid));
 		mv.setViewName("productCustList");
 		return mv;
 	}
@@ -88,7 +91,7 @@ public class IndexController
 	@ModelAttribute
 	public void getData(Model m)
 	{
-		m.addAttribute("catList",categoryDAOImpl.retrieve());
+		m.addAttribute("catList",categoryDAO.retrieve());
     }
 	
 	@RequestMapping("/goToLogin") 

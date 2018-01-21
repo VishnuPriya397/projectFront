@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image7.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image11.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
 <div class="container">
@@ -30,7 +30,7 @@
 <th>Price</th>
 <th>Image</th>
 
-<th class="span2">ACTION</th>
+<th class="span4">Action</th>
 </tr>
 <c:if test="${empty prodList}">
 <tr>
@@ -50,7 +50,6 @@
 <td><img src="${pageContext.request.contextPath}/resources/${p.imagName}" height="50px" width="50px"></td>
 <td><c:set var="contexRoot" value="${pageContext.request.contextPath}"></c:set>
 <a class="btn btn-info" role="button" href="<c:url value="/prodDetails/${p.pid}"/>">Details</a>
-<a class="btn btn-info" role="button" href="<c:url value="/addToCart/${p.pid}"/>">Add To Cart</a>
 <tr>
 </c:forEach>
 </table>
