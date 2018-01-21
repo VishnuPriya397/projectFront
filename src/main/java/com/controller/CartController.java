@@ -93,6 +93,7 @@ public class CartController {
 			item.setEmail(principal.getName());
 			item.setProductQuantity(q);
 			item.setStatus("C");
+			item.setImagName(p.getImagName());
 			item.setSubTotal(q * p.getPrice());
 			item.setProductPrice(p.getPrice());
 			cartDAO.insertCart(item);

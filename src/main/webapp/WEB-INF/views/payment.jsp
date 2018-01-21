@@ -27,10 +27,10 @@ $( document ).ready(function() {
 </head>
 <body background = "C:\\Users\\Priya\\Desktop\\image15.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
-<h2 style="color:white">Sweet Gene</h2>
+<h2 style="color:Black">Sweet Gene</h2>
 <div id="wrap">
 <div id="main" class="container clear-top">
-<font color="white">
+<font color="White">
   <h3>Select a Payment Method</h3></font>
   <hr>
   <form:form commandName="payment" action="selectPaymentMethod" method="post">

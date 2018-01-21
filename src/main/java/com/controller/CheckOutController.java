@@ -167,7 +167,6 @@ public class CheckOutController {
 		
 		for(Cart cartItem:cartItemsList){
 			
-			
 			Order orders=new Order();
 			String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 			orders.setOrderId(timeStamp);

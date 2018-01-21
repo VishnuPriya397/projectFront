@@ -19,8 +19,8 @@
 <div id="wrap">
 <div id="main" class="container clear-top">
 <div class = "row">
-      <div class = "col-xs-8 jumbotron bg-warning">
-      	<div class = "col-xs-5">
+      <div class = "col-xs-8 jumbotron">
+      	<div class = "col-xs-5 bg-warning">
       		<p>Shipping Address:</p><br>
       		 ${address.name}<br/>
       		${address.address1}
@@ -33,7 +33,7 @@
       		<c:when test="${not empty address.phone}">${address.phone}</c:when>
       		</c:choose>
       	</div>
-      	<div class = "col-xs-4">
+      	<div class = "col-xs-4 bg-warning">
       	 <p>Payment Method</p>
       	 <br>${paymentChoice}
       	</div>

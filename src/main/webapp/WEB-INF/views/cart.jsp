@@ -38,9 +38,8 @@
                         <td class="col-sm-8 col-md-6">
                         <div class="thumbnail">
                          <a class="thumbnail pull-left" href="">
-                         <img height="100px"
-						width="100px" alt="${cart.productid}"
-						src="<c:url value="/resources/images/${cart.productid}.jpg"></c:url>"> </a>
+                         <img alt="${cart.productid}"
+						src="${pageContext.request.contextPath}/resources/${cart.imagName}" height="50px" width="50px"> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><a href="#">${cart.productName}</a></h4>
                                 <h5 class="media-heading"> by <a href="#">Brand name</a></h5>
