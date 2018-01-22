@@ -30,8 +30,8 @@ $( document ).ready(function() {
 <h2 style="color:Black">Sweet Gene</h2>
 <div id="wrap">
 <div id="main" class="container clear-top">
-<font color="White">
-  <h3>Select a Payment Method</h3></font>
+<font color="white">
+  <h3><b>Select a Payment Method</b></h3></font>
   <hr>
   <form:form commandName="payment" action="selectPaymentMethod" method="post">
   						<div class="row">

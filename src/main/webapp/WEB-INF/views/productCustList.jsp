@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image11.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image8.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
 <div class="container">
@@ -26,8 +26,8 @@
 <th>Product Supplier</th>
 <th>Product Category</th>
 <th>Description</th>
-<th>Stock</th>
 <th>Price</th>
+<th>Stock</th>
 <th>Image</th>
 
 <th class="span4">Action</th>

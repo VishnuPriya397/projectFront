@@ -21,13 +21,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-        <img class="img-rounded" class="img-responsive center block" src="C:\\Users\\Priya\\Desktop\\image1.jpg" style="width:100%">
+        <img class="img-rounded" class="img-responsive center block" src="C:\\Users\\Priya\\Desktop\\car1.jpg" style="width:100%">
         </div>
         <div class="item">
-        <img class="img-rounded" class="img-responsive center block" src="C:\\Users\\Priya\\Desktop\\image2.jpg" style="width:100%">
+        <img class="img-rounded" class="img-responsive center block" src="C:\\Users\\Priya\\Desktop\\car2.jpg" style="width:100%">
         </div>
         <div class="item">
-        <img class="img-rounded" class="img-responsive center block" src="C:\\Users\\Priya\\Desktop\\image3.jpg" style="width:100%">   
+        <img class="img-rounded" class="img-responsive center block" src="C:\\Users\\Priya\\Desktop\\car3.jpg" style="width:100%">   
         </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">

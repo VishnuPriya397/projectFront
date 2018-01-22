@@ -46,6 +46,9 @@
 			 <td class="col-sm-8 col-md-6">
 			<div class="media">
 			<div class="media-body">
+			<a class="thumbnail pull-left" href="">
+					<img class="img-responsive"  width="72px" height="72px" src="${pageContext.request.contextPath}/resources/${order.imagName}"></a>
+			<div class="media-body">
 			<c:forEach items="${productList}" var="product">	
 				<c:if test="${product.pid == order.productId}">
 			<h4 class="media-heading"><a href="">${product.pname}</a></h4>

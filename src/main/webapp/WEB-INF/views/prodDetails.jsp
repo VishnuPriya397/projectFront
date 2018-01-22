@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body background = "C:\\Users\\Priya\\Desktop\\image1.jpg">
+<body background = "C:\\Users\\Priya\\Desktop\\image7.jpg">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h2 style="color:maroon">Sweet Gene</h2>
 

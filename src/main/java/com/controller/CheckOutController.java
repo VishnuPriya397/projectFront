@@ -177,6 +177,7 @@ public class CheckOutController {
 			orders.setProductId(cartItem.getProductid());
 			orders.setProductQuantity(cartItem.getProductQuantity());
 			orders.setPrice(cartItem.getProductPrice());
+			orders.setImagName(cartItem.getImagName());
 			orders.setOrderStatus("PROCESSED");	
 			orders.setCreatedTimestamp(new Timestamp(System.currentTimeMillis()));
 			orders.setCreatedBy("SYSTEM");
